@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-n98p4svh0@e72=(z_$5r!n(n%-ojc-m)pn19-bh0nkhq%jv4z!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-venv.eba-upsuhpx3.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -82,10 +82,15 @@ WSGI_APPLICATION = 'enfasis_drf_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':os.environ["RDS_DB_NAME"],
+        'USER':os.environ["RDS_USERNAME"],
+        'PASSWORD':os.environ["RDS_PASSWORD"],
+        'HOST':os.environ["RDS_HOST"],
+        "PORT":5432
     }
 }
 
