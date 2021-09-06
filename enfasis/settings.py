@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h269w*!je=^^rsfscqu=chh^ahoiuf*_2too$zgamdwz#%wyfj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-env.eba-2uhm5mm6.us-west-2.elasticbeanstalk.com', 'localhost']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'api',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
