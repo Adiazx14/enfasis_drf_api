@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from api.serializers import ArticleSerializer
 from api.models import Article
 from django.shortcuts import render
@@ -15,6 +16,9 @@ class ArticleList(APIView):
 class ArticleDetail(APIView):
 
     def get(self, request, id):
-        article = Article.objects.get(id=id)
+        try:
+            article = Article.objects.get(id=id)
+        except:
+            return HttpResponse(status=status.HTTP_404_NOT_FOUND)
         serializer = ArticleSerializer(article)
         return Response(serializer.data)
