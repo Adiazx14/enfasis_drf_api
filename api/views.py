@@ -10,3 +10,11 @@ class ArticleList(APIView):
         articles = Article.objects.all()
         serializer = ArticleSerializer(articles, many=True)
         return Response(serializer.data)
+
+
+class ArticleDetail(APIView):
+
+    def get(self, request, id):
+        article = Article.objects.get(id=id)
+        serializer = ArticleSerializer(article)
+        return Response(serializer.data)
