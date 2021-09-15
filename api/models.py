@@ -17,7 +17,7 @@ class Author(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
-    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True)
+    author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
     subtitle = models.CharField(max_length=200, blank=True)
 

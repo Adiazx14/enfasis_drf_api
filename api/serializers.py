@@ -1,7 +1,8 @@
+from django.db import models
 from django.db.models import fields
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
-from .models import Article, ArticleSection, Author, Image, Paragraph, Quote
+from .models import Article, ArticleSection, Author, Category, Image, Paragraph, Quote
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -23,10 +24,16 @@ class QuotesSerializer(serializers.ModelSerializer):
         model = Quote
         fields = "__all__"
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
 class ArticleSectionSerializer(serializers.ModelSerializer):
     paragraphs = serializers.SerializerMethodField(read_only=True)
     images = serializers.SerializerMethodField(read_only=True)
     quotes = serializers.SerializerMethodField(read_only=True)
+    
 
     class Meta:
         model = ArticleSection
@@ -47,10 +54,17 @@ class ArticleSectionSerializer(serializers.ModelSerializer):
         serializer = QuotesSerializer(quotes, many=True)
         return serializer.data
  
+    
 
 class ArticleSerializer(serializers.ModelSerializer):
     author = serializers.SerializerMethodField(read_only=True)
     sections = serializers.SerializerMethodField(read_only=True)
+    category = serializers.SerializerMethodField(read_only=True)
+    
+    def get_category(self, obj):
+        category = obj.category
+        serializer = CategorySerializer(category)
+        return serializer.data
 
     class Meta:
         model = Article
