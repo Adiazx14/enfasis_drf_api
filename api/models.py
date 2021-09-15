@@ -34,6 +34,7 @@ class ArticleSection(models.Model):
 
 class Image(models.Model):
     section = models.ForeignKey(ArticleSection, on_delete=models.CASCADE)
+    caption = models.CharField(max_length=200, blank=True)
     image = models.ImageField()
 
 class Paragraph(models.Model):
