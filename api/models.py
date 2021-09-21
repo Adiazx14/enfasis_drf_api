@@ -50,6 +50,9 @@ class Revista(models.Model):
     subtitle = models.CharField(max_length=200, blank=True)
     paragraph = models.TextField(blank=True)
 
+    def __str__(self):
+        return self.subtitle
+
 class Image(models.Model):
     section = models.ForeignKey(ArticleSection, on_delete=models.CASCADE, null=True, blank=True)
     article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True)
