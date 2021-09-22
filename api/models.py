@@ -51,7 +51,7 @@ class Revista(models.Model):
     paragraph = models.TextField(blank=True)
 
     def __str__(self):
-        return self.subtitle
+        return f'Número {self.number} ({self.subtitle})'
 
 class Image(models.Model):
     section = models.ForeignKey(ArticleSection, on_delete=models.CASCADE, null=True, blank=True)
