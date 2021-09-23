@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import fields
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
-from .models import Article, ArticleSection, Author, Category, Image, Paragraph, Quote, Revista
+from .models import Article, ArticleSection, Author, Category, Image, Paragraph, Quote, Revista, Subscriber
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
@@ -89,3 +89,8 @@ class RevistaSerializer(serializers.ModelSerializer):
         images = obj.image_set.all()
         serializer = ImagesSerializer(images, many=True)
         return serializer.data
+
+class SubscriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscriber
+        fields='__all__'

@@ -59,3 +59,9 @@ class Image(models.Model):
     revista = models.ForeignKey(Revista, on_delete=models.CASCADE, null=True, blank=True)
     caption = models.CharField(max_length=200, blank=True)
     image = models.ImageField()
+
+class Subscriber(models.Model):
+    email = models.EmailField(unique=True, max_length=300)
+
+    def __str__(self):
+        return self.email

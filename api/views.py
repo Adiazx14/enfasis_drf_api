@@ -1,6 +1,7 @@
 from django.http.response import HttpResponse
-from api.serializers import ArticleSerializer, RevistaSerializer
-from api.models import Article, Revista
+from rest_framework import serializers
+from api.serializers import ArticleSerializer, RevistaSerializer, SubscriberSerializer
+from api.models import Article, Revista, Subscriber
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView, status
@@ -29,3 +30,17 @@ class RevistasView(APIView):
         revistas = Revista.objects.all()
         serializer = RevistaSerializer(revistas, many=True)
         return Response(serializer.data) 
+
+class SubscriberView(APIView):
+
+    def get(self, request):
+        subscriber = Subscriber.objects.all()
+        serializer = SubscriberSerializer(subscriber, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request):
+        serializer = SubscriberSerializer(data = request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else: return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
