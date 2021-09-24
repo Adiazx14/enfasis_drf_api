@@ -16,6 +16,7 @@ class Author(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=200)
+    cover = models.ImageField(null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
@@ -49,6 +50,7 @@ class Revista(models.Model):
     author = models.CharField(max_length=200, blank=True)
     subtitle = models.CharField(max_length=200, blank=True)
     paragraph = models.TextField(blank=True)
+    cover = models.ImageField(null=True)
 
     def __str__(self):
         return f'Número {self.number} ({self.subtitle})'
