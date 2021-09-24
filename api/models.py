@@ -57,7 +57,6 @@ class Revista(models.Model):
 
 class Image(models.Model):
     section = models.ForeignKey(ArticleSection, on_delete=models.CASCADE, null=True, blank=True)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True, blank=True)
     revista = models.ForeignKey(Revista, on_delete=models.CASCADE, null=True, blank=True)
     caption = models.CharField(max_length=200, blank=True)
     image = models.ImageField()
