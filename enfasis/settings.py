@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'storages',
+    'corsheaders'
 
 ]
 
@@ -65,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'enfasis.urls'
@@ -160,3 +162,12 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CORS_ALLOWED_ORIGINS = [
+"https://enfasis-magazine-frankperez-github.vercel.app",
+"https://enfasismag.com",
+"https://enfasis-magazine.vercel.app",
+"https://enfasis-magazine-git-main-frankperez-github.vercel.app",
+"https://www.enfasismag.com"
+]
