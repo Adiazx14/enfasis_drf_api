@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models import fields
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
-from .models import Article, ArticleSection, Author, Category, Image, Paragraph, Promotion, Promotions, Quote, Revista, Subscriber
+from .models import Article, ArticleSection, Author, Category, Image, Paragraph, Promotion, Quote, Revista, Subscriber
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
