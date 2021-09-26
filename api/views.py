@@ -1,7 +1,7 @@
 from django.http.response import HttpResponse
 from rest_framework import serializers
-from api.serializers import ArticleSerializer, RevistaSerializer, SubscriberSerializer
-from api.models import Article, Revista, Subscriber
+from api.serializers import ArticleSerializer, PromotionSerializer, RevistaSerializer, SubscriberSerializer
+from api.models import Article, Promotion, Revista, Subscriber
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView, status
@@ -44,3 +44,10 @@ class SubscriberView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else: return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class PromotionView(APIView):
+
+    def get(self, request):
+        promotions = Promotion.objects.all()
+        serializer = PromotionSerializer(promotions, many = True)
+        return Response(serializer.data)

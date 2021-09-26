@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.db import models
-from .models import Article, ArticleSection, Author, Category, Image, Paragraph, Quote, Revista, Subscriber
+from .models import Article, ArticleSection, Author, Category, Image, Paragraph, Promotions, Quote, Revista, Subscriber
 
 class ArticleSectionInline(admin.TabularInline):
     model = ArticleSection
@@ -34,3 +34,4 @@ admin.site.register(Author)
 admin.site.register(Category)
 admin.site.register(Revista, RevistaAdmin)
 admin.site.register(Subscriber)
+admin.site.register(Promotions)

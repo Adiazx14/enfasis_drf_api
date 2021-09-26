@@ -69,3 +69,9 @@ class Subscriber(models.Model):
     def __str__(self):
         return self.email
 
+class Promotion(models.Model):
+    title = models.CharField(max_length=200, blank=True)
+    image = models.ImageField()
+
+    def __str__(self):
+        return self.title

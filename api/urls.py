@@ -1,10 +1,11 @@
 from rest_framework import views
-from .views import ArticleDetail, ArticleList, RevistasView, SubscriberView
+from .views import ArticleDetail, ArticleList, PromotionView, RevistasView, SubscriberView
 from django.urls import path
 
 urlpatterns = [
     path('', view=ArticleList.as_view()),
     path('<int:id>/', view=ArticleDetail.as_view()),
     path('revistas/', view=RevistasView.as_view()),
-    path('subscribers/', view=SubscriberView.as_view())
+    path('subscribers/', view=SubscriberView.as_view()),
+    path('promotions/', view=PromotionView.as_view())
 ]
