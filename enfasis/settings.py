@@ -26,7 +26,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.eba-v37cvdpk.us-west-2.elasticbeanstalk.com', 'localhost']
+ALLOWED_HOSTS = ['django-env.eba-v37cvdpk.us-west-2.elasticbeanstalk.com', 'localhost', 'enfasisapi.com']
 
 
 # Application definition
