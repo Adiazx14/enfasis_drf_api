@@ -170,4 +170,7 @@ CORS_ALLOWED_ORIGINS = [
 "https://enfasis-magazine.vercel.app",
 "https://enfasis-magazine-git-main-frankperez-github.vercel.app",
 "https://www.enfasismag.com"
+
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
