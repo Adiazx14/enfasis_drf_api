@@ -9,7 +9,7 @@ from rest_framework.views import APIView, status
 class ArticleList(APIView):
 
     def get(self, request):
-        articles = Article.objects.all()
+        articles = Article.objects.all().order_by("-id")
         serializer = ArticleSerializer(articles, many=True)
         return Response(serializer.data)
 
