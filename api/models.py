@@ -20,8 +20,8 @@ class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
-    subcategory = models.CharField(max_length=200, blank=True)
-    keywords = models.CharField(max_length=200, null=True)
+    subcategory = models.CharField(max_length=200)
+    keywords = models.CharField(max_length=200, blank=True, null=True)
     
 
     def __str__(self):
