@@ -27,7 +27,7 @@ class ArticleDetail(APIView):
 class RevistasView(APIView):
 
     def get(self, request):
-        revistas = Revista.objects.all()
+        revistas = Revista.objects.all().order_by("-id")
         serializer = RevistaSerializer(revistas, many=True)
         return Response(serializer.data) 
 
