@@ -21,6 +21,7 @@ class Article(models.Model):
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, blank=True)
     date_published = models.DateTimeField(auto_now_add=True)
     subcategory = models.CharField(max_length=200)
+    description = models.CharField(max_length=160, blank=True)
     keywords = models.CharField(max_length=200, blank=True, null=True)
     
 
